@@ -342,8 +342,22 @@
            <img src="https://img.shields.io/badge/Jira-0052CC?logo=jira&logoColor=whit" height="35" loading="lazy">
       </p>
       <ul class="metrics">
-        <li>Executed 140 test cases covering courier creation, order management, and core user journeys using Android Studio Emulator and Postman.</li>
-        <li>Reported 4 critical, 5 major, and 22 minor defects, including coverage for push notifications, offline scenarios, status transitions, and field validations.</li>
+        <li>Executed 140 test cases covering courier creation, order management, and core user journeys 
+             using Android Studio Emulator and Postman.</li>
+        <li>Reported 4 critical, 5 major, and 22 minor defects, including coverage for push notifications, 
+             offline scenarios, status transitions, and field validations.</li>
+        <li>Test cases executed in Android Studio emulator for courier mode. Validated push notifications, 
+             offline scenarios, and error messages. Reported defects in Jira ensuring reproducibility and 
+             clear documentation.</li>
+        <li>Checklist for order status screen functionality. Verified state transitions, cancellation 
+             rules, and UI behavior. Ensured compliance with expected flows and documented defects in 
+             Jira.</li>
+        <li>API request checklist for courier creation, deletion, and order management. Validated input 
+             fields, error handling (400, 404, 409), and database consistency. Reported multiple defects 
+             linked to Jira for traceability.</li>
+        <li>Field validation tests for order creation screen. Checked input limits, character restrictions, 
+             and error messages across name, address, phone, and comments. Reported defects in Jira for 
+             corrective action.</li>
       <div class="card-links">
         <a href="#" target="_blank">GitHub →</a>
         <a href="https://docs.google.com/spreadsheets/d/1YYfAs6b0Kmf2l7xMoadeh8jQ6riV6D3P/edit?usp=drive_link&ouid=114584372796764343614&rtpof=true&sd=true" target="_blank">Documentation →</a>
@@ -364,8 +378,10 @@
            <img src="https://img.shields.io/badge/Pytest-0A9EDC?logo=pytest&logoColor=white" height="35" loading="lazy">
       </p>
       <ul class="metrics">
-        <li>Implemented a Page Object Model (POM) and automated tests using, covering route setup, tariff selection, phone verification, payment method addition, and order confirmation.</li>
+        <li>Implemented a Page Object Model (POM) and automated tests using, covering route setup, tariff selection, 
+             phone verification, payment method addition, and order confirmation.</li>
         <li>Reproducibility, defect detection, and scalability through GitHub version control.</li>
+        <li>Includes source code, test scripts, Page Object Model implementation, and reproducibility guidelines.</li>
       </ul>
       <div class="card-links">
         <a href="https://github.com/JanRDLP/qa-project-Urban-Routes-es" target="_blank">GitHub →</a>
@@ -385,7 +401,10 @@
       </p>
       <ul class="metrics">
         <li>Ran SQL queries to check vehicle count, company distribution, weather conditions, and trip aggregation.</li>
-        <li>Found fewer vehicles than planned, fragmented company fleets, and inconsistencies in trip data, supporting bug detection in cost calculation and demand coverage.</li>
+        <li>Found fewer vehicles than planned, fragmented company fleets, and inconsistencies in trip data, supporting 
+             bug detection in cost calculation and demand coverage.</li>
+        <li>SQL query counting taxis in database. Found 5,529 vehicles versus 10,550 planned, showing insufficient supply
+             and explaining user complaints.</li>
       </ul>
       <div class="card-links">
         <a href="#" target="_blank">GitHub →</a>
