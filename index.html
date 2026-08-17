@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TU NOMBRE | QA Automation Engineer</title>
+<meta name="description" content="Portafolio de TU NOMBRE, QA Automation Engineer.">
+
+<!-- ============================================================
+     COMO USAR ESTA PLANTILLA
+     1. Busca y reemplaza "TU NOMBRE" por tu nombre real (varias veces).
+     2. Reemplaza todo el texto entre comillas de ejemplo por el tuyo.
+     3. Cada sección tiene un comentario <!-- EDITA AQUI --> arriba.
+     4. Los proyectos son bloques repetibles: copia/pega un <article class="card">
+        completo para agregar más.
+     5. Guarda como index.html y súbelo a un repo de GitHub, luego
+        activa GitHub Pages (Settings → Pages → rama main → carpeta /).
+     ============================================================ -->
+
+<style>
+  :root{
+    --bg: #10141b;
+    --panel: #171d27;
+    --panel-2: #1d2531;
+    --line: #2a3242;
+    --text: #e7ebf1;
+    --muted: #8b96a8;
+    --pass: #4ade80;
+    --warn: #f5b942;
+    --accent: #7dd3fc;
+    --mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+    --sans: 'Inter', -apple-system, Segoe UI, sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+  }
+  a{ color: inherit; }
+
+  ::selection{ background: var(--pass); color:#0b1310; }
+
+  /* ---------- layout helpers ---------- */
+  .wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  section{ padding: 90px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+
+  .eyebrow{
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--pass);
+    letter-spacing: .04em;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom: 18px;
+  }
+  .eyebrow::before{ content:"›"; color: var(--muted); }
+
+  h1,h2,h3{ font-family: var(--sans); font-weight: 700; line-height:1.15; margin:0; }
+  h2{ font-size: clamp(24px,3vw,32px); margin-bottom: 36px; }
+
+  /* ---------- nav ---------- */
+  header{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(16,20,27,.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 16px 24px;
+  }
+  .brand{ font-family: var(--mono); font-weight:600; font-size:15px; }
+  .brand span{ color: var(--pass); }
+  .navlinks{ display:flex; gap: 28px; list-style:none; margin:0; padding:0; }
+  .navlinks a{
+    text-decoration:none; color: var(--muted); font-size:14px;
+    font-family: var(--mono);
+    transition: color .15s;
+  }
+  .navlinks a:hover{ color: var(--text); }
+
+  /* ---------- hero / terminal ---------- */
+  .hero{ padding-top: 110px; padding-bottom: 80px; border-bottom: 1px solid var(--line); }
+  .terminal{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  .terminal .bar{
+    display:flex; gap:6px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+    background: var(--panel-2);
+  }
+  .terminal .dot{ width:10px; height:10px; border-radius:50%; background:#3a4356; }
+  .terminal pre{
+    margin:0; padding: 22px 20px;
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--muted);
+    white-space: pre-wrap;
+  }
+  .terminal .ok{ color: var(--pass); }
+  .terminal .path{ color: var(--accent); }
+
+  .hero h1{
+    font-size: clamp(32px, 5vw, 52px);
+    margin-bottom: 14px;
+  }
+  .hero .role{
+    font-family: var(--mono);
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 22px;
+  }
+  .hero p.lead{
+    max-width: 640px; color: var(--muted); font-size: 17px; margin-bottom: 32px;
+  }
+  .btnrow{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 12px 20px;
+    border-radius: 7px;
+    font-family: var(--mono);
+    font-size: 14px;
+    text-decoration:none;
+    border: 1px solid var(--line);
+  }
+  .btn.primary{ background: var(--pass); color:#0b1310; border-color: var(--pass); font-weight:600; }
+  .btn.ghost{ color: var(--text); }
+  .btn.ghost:hover{ border-color: var(--accent); }
+
+  /* ---------- about ---------- */
+  .about-grid{ display:grid; grid-template-columns: 1.3fr .7fr; gap: 48px; }
+  .about-grid p{ color: var(--muted); margin-bottom: 16px; }
+  .about-grid strong{ color: var(--text); }
+  .checklist{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
+  .checklist li{
+    font-family: var(--mono); font-size: 14px;
+    background: var(--panel); border:1px solid var(--line);
+    padding: 12px 14px; border-radius: 7px;
+  }
+  .checklist li::before{ content:"✓ "; color: var(--pass); }
+
+  @media (max-width: 720px){ .about-grid{ grid-template-columns: 1fr; } }
+
+  /* ---------- stack / badges ---------- */
+  .badges{ display:flex; flex-wrap:wrap; gap:10px; }
+  .badge{
+    font-family: var(--mono); font-size:13px;
+    padding: 8px 14px; border-radius: 20px;
+    background: var(--panel); border: 1px solid var(--line);
+    color: var(--muted);
+  }
+
+  /* ---------- projects ---------- */
+  .card{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+  .card-top{
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap: wrap; gap: 10px;
+    margin-bottom: 14px;
+  }
+  .card-top h3{ font-size: 19px; }
+  .status{
+    font-family: var(--mono); font-size: 12px;
+    padding: 4px 10px; border-radius: 5px;
+    background: rgba(74,222,128,.12); color: var(--pass);
+    border: 1px solid rgba(74,222,128,.3);
+  }
+  .card p.desc{ color: var(--muted); margin-bottom: 16px; }
+  .metrics{ list-style:none; margin:0 0 18px; padding:0; display:flex; flex-direction:column; gap:8px; }
+  .metrics li{ font-size: 14px; color: var(--text); padding-left: 20px; position:relative; }
+  .metrics li::before{
+    content:"▸"; color: var(--accent); position:absolute; left:0;
+  }
+  .card-links{ display:flex; gap:16px; flex-wrap:wrap; }
+  .card-links a{
+    font-family: var(--mono); font-size: 13px; color: var(--accent);
+    text-decoration:none; border-bottom: 1px solid transparent;
+  }
+  .card-links a:hover{ border-color: var(--accent); }
+
+  /* ---------- contact ---------- */
+  .contact-box{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 40px;
+    text-align:center;
+  }
+  .contact-box h2{ margin-bottom: 12px; }
+  .contact-box p{ color: var(--muted); max-width: 480px; margin: 0 auto 28px; }
+
+  footer{
+    text-align:center; padding: 30px 0;
+    font-family: var(--mono); font-size: 12px; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">TU_NOMBRE<span>.qa</span></div>
+    <ul class="navlinks">
+      <li><a href="#about">sobre-mi</a></li>
+      <li><a href="#stack">stack</a></li>
+      <li><a href="#projects">proyectos</a></li>
+      <li><a href="#contact">contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<!-- EDITA AQUI: nombre, título y frase de presentación -->
+<section class="hero">
+  <div class="wrap">
+    <div class="terminal">
+      <div class="bar">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <pre>$ ejecutar --suite portafolio.spec
+
+  <span class="path">TU_NOMBRE/perfil</span> ................. <span class="ok">PASS</span>
+  <span class="path">experiencia/qa-automation</span> ......... <span class="ok">PASS</span>
+  <span class="path">proyectos/destacados</span> .............. <span class="ok">PASS</span>
+
+  4 passed, 0 failed — listo para producción ✓</pre>
+    </div>
+
+    <h1>TU NOMBRE</h1>
+    <div class="role">QA ENGINEER · QA AUTOMATION · [AGREGA TU ROL]</div>
+    <p class="lead">
+      Escribe aquí una frase corta sobre lo que haces: por ejemplo, tu especialidad
+      en automatización, testing manual, o calidad de datos, y qué tipo de
+      proyectos te interesan.
+    </p>
+    <div class="btnrow">
+      <a class="btn primary" href="#projects">Ver proyectos</a>
+      <a class="btn ghost" href="https://linkedin.com/in/tu-usuario" target="_blank">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/tu-usuario" target="_blank">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOBRE MÍ ================= -->
+<!-- EDITA AQUI: tu historia, experiencia y lo que aportas -->
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">sobre-mi.md</div>
+    <h2>Sobre mí</h2>
+    <div class="about-grid">
+      <div>
+        <p>
+          Escribe aquí 2-3 párrafos contando quién eres profesionalmente:
+          tu formación, años de experiencia, y en qué te especializas.
+          <strong>Resalta en negrita</strong> las herramientas o metodologías
+          más relevantes para el puesto que buscas.
+        </p>
+        <p>
+          Puedes agregar un segundo párrafo hablando de herramientas
+          específicas (por ejemplo Selenium, Postman, Jira/Xray) y de
+          cómo las usas en tu día a día.
+        </p>
+      </div>
+      <ul class="checklist">
+        <li>Lo que aportas — punto 1</li>
+        <li>Lo que aportas — punto 2</li>
+        <li>Lo que aportas — punto 3</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STACK ================= -->
+<!-- EDITA AQUI: agrega o quita badges. Genera más en https://shields.io -->
+<section id="stack">
+  <div class="wrap">
+    <div class="eyebrow">tech-stack.json</div>
+    <h2>Mi caja de herramientas</h2>
+    <div class="badges">
+      <span class="badge">Selenium</span>
+      <span class="badge">Python</span>
+      <span class="badge">Postman</span>
+      <span class="badge">Jenkins</span>
+      <span class="badge">Jira / Xray</span>
+      <span class="badge">SQL</span>
+      <span class="badge">Git</span>
+      <span class="badge">Agrega el tuyo</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROYECTOS ================= -->
+<!-- EDITA AQUI: duplica un <article class="card">...</article> por cada proyecto -->
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">proyectos/</div>
+    <h2>Proyectos destacados</h2>
+
+    <article class="card">
+      <div class="card-top">
+        <h3>Nombre del proyecto 1</h3>
+        <span class="status">PASS</span>
+      </div>
+      <p class="desc">
+        Describe en 1-2 frases qué hiciste, qué problema resolvió y qué
+        herramientas usaste.
+      </p>
+      <ul class="metrics">
+        <li>Resultado medible 1 (ej: "97% menos tiempo de regresión")</li>
+        <li>Resultado medible 2 (ej: "120 casos de prueba, 100% de aprobación")</li>
+      </ul>
+      <div class="card-links">
+        <a href="#" target="_blank">Ver código en GitHub →</a>
+        <a href="#" target="_blank">Ver documentación →</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <h3>Nombre del proyecto 2</h3>
+        <span class="status">PASS</span>
+      </div>
+      <p class="desc">
+        Describe en 1-2 frases qué hiciste, qué problema resolvió y qué
+        herramientas usaste.
+      </p>
+      <ul class="metrics">
+        <li>Resultado medible 1</li>
+        <li>Resultado medible 2</li>
+      </ul>
+      <div class="card-links">
+        <a href="#" target="_blank">Ver código en GitHub →</a>
+      </div>
+    </article>
+
+    <!-- copia el bloque <article class="card">...</article> de arriba para agregar más proyectos -->
+
+  </div>
+</section>
+
+<!-- ================= CONTACTO ================= -->
+<!-- EDITA AQUI: tu email, CV y perfiles -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <h2>¿Listo para trabajar juntos?</h2>
+      <p>
+        Escribe aquí qué tipo de oportunidades buscas y qué puedes aportar
+        a un equipo.
+      </p>
+      <div class="btnrow" style="justify-content:center">
+        <a class="btn primary" href="mailto:tu.email@ejemplo.com">tu.email@ejemplo.com</a>
+        <a class="btn ghost" href="#" target="_blank">📄 Descargar CV</a>
+        <a class="btn ghost" href="https://github.com/tu-usuario" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 TU NOMBRE. Hosted on GitHub Pages.
+</footer>
+
+</body>
+</html>
