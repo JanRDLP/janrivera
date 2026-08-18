@@ -6,17 +6,6 @@
 <title>Jan Horacio Rivera De la Puente | QA Automation Engineer</title>
 <meta name="description" content="Jan Rivera, QA Automation Engineer.">
 
-<!-- ============================================================
-     COMO USAR ESTA PLANTILLA
-     1. Busca y reemplaza "TU NOMBRE" por tu nombre real (varias veces).
-     2. Reemplaza todo el texto entre comillas de ejemplo por el tuyo.
-     3. Cada sección tiene un comentario <!-- EDITA AQUI -> arriba.
-     4. Los proyectos son bloques repetibles: copia/pega un <article class="card">
-        completo para agregar más.
-     5. Guarda como index.html y súbelo a un repo de GitHub, luego
-        activa GitHub Pages (Settings → Pages → rama main → carpeta /).
-     ============================================================ -->
-
 <style>
   :root{
     --bg: #10141b;
@@ -45,7 +34,6 @@
 
   ::selection{ background: var(--pass); color:#0b1310; }
 
-  /* ---------- layout helpers ---------- */
   .wrap{
     max-width: 920px;
     margin: 0 auto;
@@ -69,7 +57,6 @@
   h1,h2,h3{ font-family: var(--sans); font-weight: 700; line-height:1.15; margin:0; }
   h2{ font-size: clamp(24px,3vw,32px); margin-bottom: 36px; }
 
-  /* ---------- nav ---------- */
   header{
     position: sticky; top:0; z-index: 50;
     background: rgba(16,20,27,.85);
@@ -90,7 +77,6 @@
   }
   .navlinks a:hover{ color: var(--text); }
 
-  /* ---------- hero / terminal ---------- */
   .hero{ padding-top: 110px; padding-bottom: 80px; border-bottom: 1px solid var(--line); }
   .terminal{
     background: var(--panel);
@@ -143,7 +129,6 @@
   .btn.ghost{ color: var(--text); }
   .btn.ghost:hover{ border-color: var(--accent); }
 
-  /* ---------- about ---------- */
   .about-grid{ display:grid; grid-template-columns: 1.3fr .7fr; gap: 48px; }
   .about-grid p{ color: var(--muted); margin-bottom: 16px; }
   .about-grid strong{ color: var(--text); }
@@ -157,14 +142,7 @@
 
   @media (max-width: 720px){ .about-grid{ grid-template-columns: 1fr; } }
 
-  /* ---------- stack / badges ---------- */
-  .badges{ display:flex; flex-wrap:wrap; gap:10px; }
-  .badge{
-    font-family: var(--mono); font-size:13px;
-    padding: 8px 14px; border-radius: 20px;
-    background: var(--panel); border: 1px solid var(--line);
-    color: var(--muted);
-  }
+  .badges{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
 
   /* ---------- projects ---------- */
   .card{
@@ -199,6 +177,28 @@
   }
   .card-links a:hover{ border-color: var(--accent); }
 
+  /* ---------- projects: split layout (texto + imagen), estilo Diego Ruiz ---------- */
+  .card-split{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .card-split .card-text{ min-width:0; }
+  .card-split .card-img img{
+    width:100%;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    display:block;
+  }
+  /* alterna el lado de la imagen en proyectos pares */
+  .card-split.reverse .card-img{ order:-1; }
+
+  @media (max-width: 760px){
+    .card-split{ grid-template-columns: 1fr; }
+    .card-split.reverse .card-img{ order:0; } /* en móvil siempre imagen abajo */
+  }
+
   /* ---------- contact ---------- */
   .contact-box{
     background: var(--panel);
@@ -230,8 +230,6 @@
   </nav>
 </header>
 
-<!-- ================= HERO ================= -->
-<!-- EDITA AQUI: nombre, título y frase de presentación -->
 <section class="hero">
   <div class="wrap">
     <div class="terminal">
@@ -263,8 +261,6 @@
   </div>
 </section>
 
-<!-- ================= SOBRE MÍ ================= -->
-<!-- EDITA AQUI: tu historia, experiencia y lo que aportas -->
 <section id="about">
   <div class="wrap">
     <div class="eyebrow">about-me.md</div>
@@ -285,7 +281,6 @@
           and accessories. I also developed routines to automatically label each component and generate 
           inventory files, reducing manual errors and improving traceability in industrial projects.
         </p>
-        </p>
         <p>
           I am passionate about learning and applying new technologies, exploring digital tools that 
           enhance efficiency and innovation. My goal is to combine technical precision with analytical 
@@ -301,123 +296,139 @@
   </div>
 </section>
 
-<!-- ================= STACK ================= -->
-<!-- EDITA AQUI: agrega o quita badges. Genera más en https://shields.io -->
 <section id="stack">
   <div class="wrap">
     <div class="eyebrow">tech-stack.json</div>
     <h2>Tech Stack</h2>
     <div class="badges">
-      <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" height="35" loading="lazy">
-      <img src="https://img.shields.io/badge/Selenium-43B02A?logo=selenium&logoColor=white" height="35" loading="lazy">
-      <img src="https://img.shields.io/badge/Pytest-0A9EDC?logo=pytest&logoColor=white" height="35" loading="lazy">
-      <img src="https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white" height="35" loading="lazy">
-      <img src="https://img.shields.io/badge/Jira-0052CC?logo=jira&logoColor=whit" height="35" loading="lazy">
-      <img src="https://img.shields.io/badge/SQL-336791?logo=postgresql&logoColor=white" height="35" loading="lazy">
-      <img src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white" height="35" loading="lazy">
-      <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" height="35" loading="lazy">
-      <img src="https://img.shields.io/badge/AutoCAD-E51050?logo=autodesk&logoColor=white" height="35" loading="lazy">
-      <img src="https://img.shields.io/badge/Google%20Drive-4285F4?logo=googledrive&logoColor=white" height="35" loading="lazy">
+      <img src="https://img.shields.io/badge/Python-3776AB?logo=python&amp;logoColor=white" height="35" loading="lazy">
+      <img src="https://img.shields.io/badge/Selenium-43B02A?logo=selenium&amp;logoColor=white" height="35" loading="lazy">
+      <img src="https://img.shields.io/badge/Pytest-0A9EDC?logo=pytest&amp;logoColor=white" height="35" loading="lazy">
+      <img src="https://img.shields.io/badge/Postman-FF6C37?logo=postman&amp;logoColor=white" height="35" loading="lazy">
+      <img src="https://img.shields.io/badge/Jira-0052CC?logo=jira&amp;logoColor=whit" height="35" loading="lazy">
+      <img src="https://img.shields.io/badge/SQL-336791?logo=postgresql&amp;logoColor=white" height="35" loading="lazy">
+      <img src="https://img.shields.io/badge/Git-F05032?logo=git&amp;logoColor=white" height="35" loading="lazy">
+      <img src="https://img.shields.io/badge/GitHub-181717?logo=github&amp;logoColor=white" height="35" loading="lazy">
+      <img src="https://img.shields.io/badge/AutoCAD-E51050?logo=autodesk&amp;logoColor=white" height="35" loading="lazy">
+      <img src="https://img.shields.io/badge/Google%20Drive-4285F4?logo=googledrive&amp;logoColor=white" height="35" loading="lazy">
     </div>
   </div>
 </section>
 
 <!-- ================= PROYECTOS ================= -->
-<!-- EDITA AQUI: duplica un <article class="card">...</article> por cada proyecto -->
+<!-- Cada proyecto usa "card card-split" para poner texto e imagen lado a lado en desktop.
+     Agrega la clase "reverse" en proyectos alternos para que la imagen cambie de lado
+     (como en el ejemplo de Diego Ruiz). Reemplaza src="assets/..." con tus capturas reales.
+     Si un proyecto tiene 2 imágenes, agrega un segundo <img> dentro de .card-img. -->
 <section id="projects">
   <div class="wrap">
     <div class="eyebrow">projects/</div>
     <h2>Projects</h2>
 
-    <article class="card">
-      <div class="card-top">
-        <h3>Web, Mobile & API Testing</h3>
-        <span class="status">PASS</span>
+    <article class="card card-split">
+      <div class="card-text">
+        <div class="card-top">
+          <h3>Web, Mobile &amp; API Testing</h3>
+          <span class="status">PASS</span>
+        </div>
+        <p class="desc">
+          Validate key Urban Scooter flows across web, mobile, and API.
+        </p>
+        <p>
+             <img src="https://img.shields.io/badge/Postman-FF6C37?logo=postman&amp;logoColor=white" height="35" loading="lazy">
+             <img src="https://img.shields.io/badge/Jira-0052CC?logo=jira&amp;logoColor=whit" height="35" loading="lazy">
+        </p>
+        <ul class="metrics">
+          <li>Executed 140 test cases covering courier creation, order management, and core user journeys 
+               using Android Studio Emulator and Postman.</li>
+          <li>Reported 4 critical, 5 major, and 22 minor defects, including coverage for push notifications, 
+               offline scenarios, status transitions, and field validations.</li>
+          <li>Test cases executed in Android Studio emulator for courier mode. Validated push notifications, 
+               offline scenarios, and error messages. Reported defects in Jira ensuring reproducibility and 
+               clear documentation.</li>
+          <li>Checklist for order status screen functionality. Verified state transitions, cancellation 
+               rules, and UI behavior. Ensured compliance with expected flows and documented defects in 
+               Jira.</li>
+          <li>API request checklist for courier creation, deletion, and order management. Validated input 
+               fields, error handling (400, 404, 409), and database consistency. Reported multiple defects 
+               linked to Jira for traceability.</li>
+          <li>Field validation tests for order creation screen. Checked input limits, character restrictions, 
+               and error messages across name, address, phone, and comments. Reported defects in Jira for 
+               corrective action.</li>
+        </ul>
+        <div class="card-links">
+          <a href="#" target="_blank">GitHub →</a>
+          <a href="https://docs.google.com/spreadsheets/d/1YYfAs6b0Kmf2l7xMoadeh8jQ6riV6D3P/edit?usp=drive_link&amp;ouid=114584372796764343614&amp;rtpof=true&amp;sd=true" target="_blank">Documentation →</a>
+        </div>
       </div>
-      <p class="desc">
-        Validate key Urban Scooter flows across web, mobile, and API.
-      </p>
-      <p>
-           <img src="https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white" height="35" loading="lazy">
-           <img src="https://img.shields.io/badge/Jira-0052CC?logo=jira&logoColor=whit" height="35" loading="lazy">
-      </p>
-      <ul class="metrics">
-        <li>Executed 140 test cases covering courier creation, order management, and core user journeys 
-             using Android Studio Emulator and Postman.</li>
-        <li>Reported 4 critical, 5 major, and 22 minor defects, including coverage for push notifications, 
-             offline scenarios, status transitions, and field validations.</li>
-        <li>Test cases executed in Android Studio emulator for courier mode. Validated push notifications, 
-             offline scenarios, and error messages. Reported defects in Jira ensuring reproducibility and 
-             clear documentation.</li>
-        <li>Checklist for order status screen functionality. Verified state transitions, cancellation 
-             rules, and UI behavior. Ensured compliance with expected flows and documented defects in 
-             Jira.</li>
-        <li>API request checklist for courier creation, deletion, and order management. Validated input 
-             fields, error handling (400, 404, 409), and database consistency. Reported multiple defects 
-             linked to Jira for traceability.</li>
-        <li>Field validation tests for order creation screen. Checked input limits, character restrictions, 
-             and error messages across name, address, phone, and comments. Reported defects in Jira for 
-             corrective action.</li>
-      <div class="card-links">
-        <a href="#" target="_blank">GitHub →</a>
-        <a href="https://docs.google.com/spreadsheets/d/1YYfAs6b0Kmf2l7xMoadeh8jQ6riV6D3P/edit?usp=drive_link&ouid=114584372796764343614&rtpof=true&sd=true" target="_blank">Documentation →</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="card-top">
-        <h3>End-to-End Automation</h3>
-        <span class="status">PASS</span>
-      </div>
-      <p class="desc">
-        Automate the end-to-end taxi booking flow in Urban Routes.
-      </p>
-      <p>
-           <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" height="35" loading="lazy">
-           <img src="https://img.shields.io/badge/Selenium-43B02A?logo=selenium&logoColor=white" height="35" loading="lazy">
-           <img src="https://img.shields.io/badge/Pytest-0A9EDC?logo=pytest&logoColor=white" height="35" loading="lazy">
-      </p>
-      <ul class="metrics">
-        <li>Implemented a Page Object Model (POM) and automated tests using, covering route setup, tariff selection, 
-             phone verification, payment method addition, and order confirmation.</li>
-        <li>Reproducibility, defect detection, and scalability through GitHub version control.</li>
-        <li>Includes source code, test scripts, Page Object Model implementation, and reproducibility guidelines.</li>
-      </ul>
-      <div class="card-links">
-        <a href="https://github.com/JanRDLP/qa-project-Urban-Routes-es" target="_blank">GitHub →</a>
+      <div class="card-img">
+        <img src="assets/urban-scooter-1.png" alt="Captura del proyecto Web, Mobile &amp; API Testing">
       </div>
     </article>
 
-    <article class="card">
-      <div class="card-top">
-        <h3>Database & Logs Validation</h3>
-        <span class="status">PASS</span>
+    <article class="card card-split reverse">
+      <div class="card-text">
+        <div class="card-top">
+          <h3>End-to-End Automation</h3>
+          <span class="status">PASS</span>
+        </div>
+        <p class="desc">
+          Automate the end-to-end taxi booking flow in Urban Routes.
+        </p>
+        <p>
+             <img src="https://img.shields.io/badge/Python-3776AB?logo=python&amp;logoColor=white" height="35" loading="lazy">
+             <img src="https://img.shields.io/badge/Selenium-43B02A?logo=selenium&amp;logoColor=white" height="35" loading="lazy">
+             <img src="https://img.shields.io/badge/Pytest-0A9EDC?logo=pytest&amp;logoColor=white" height="35" loading="lazy">
+        </p>
+        <ul class="metrics">
+          <li>Implemented a Page Object Model (POM) and automated tests using, covering route setup, tariff selection, 
+               phone verification, payment method addition, and order confirmation.</li>
+          <li>Reproducibility, defect detection, and scalability through GitHub version control.</li>
+          <li>Includes source code, test scripts, Page Object Model implementation, and reproducibility guidelines.</li>
+        </ul>
+        <div class="card-links">
+          <a href="https://github.com/JanRDLP/qa-project-Urban-Routes-es" target="_blank">GitHub →</a>
+        </div>
       </div>
-      <p class="desc">
-        Validate database and log consistency in Urban Routes.
-      </p>
-      <p>
-           <img src="https://img.shields.io/badge/SQL-336791?logo=postgresql&logoColor=white" height="35" loading="lazy">
-      </p>
-      <ul class="metrics">
-        <li>Ran SQL queries to check vehicle count, company distribution, weather conditions, and trip aggregation.</li>
-        <li>Found fewer vehicles than planned, fragmented company fleets, and inconsistencies in trip data, supporting 
-             bug detection in cost calculation and demand coverage.</li>
-        <li>SQL query counting taxis in database. Found 5,529 vehicles versus 10,550 planned, showing insufficient supply
-             and explaining user complaints.</li>
-      </ul>
-      <div class="card-links">
-        <a href="#" target="_blank">GitHub →</a>
+      <div class="card-img">
+        <img src="assets/urban-routes-1.png" alt="Captura del proyecto End-to-End Automation">
       </div>
     </article>
 
-    <!-- copia el bloque <article class="card">...</article> de arriba para agregar más proyectos -->
+    <article class="card card-split">
+      <div class="card-text">
+        <div class="card-top">
+          <h3>Database &amp; Logs Validation</h3>
+          <span class="status">PASS</span>
+        </div>
+        <p class="desc">
+          Validate database and log consistency in Urban Routes.
+        </p>
+        <p>
+             <img src="https://img.shields.io/badge/SQL-336791?logo=postgresql&amp;logoColor=white" height="35" loading="lazy">
+        </p>
+        <ul class="metrics">
+          <li>Ran SQL queries to check vehicle count, company distribution, weather conditions, and trip aggregation.</li>
+          <li>Found fewer vehicles than planned, fragmented company fleets, and inconsistencies in trip data, supporting 
+               bug detection in cost calculation and demand coverage.</li>
+          <li>SQL query counting taxis in database. Found 5,529 vehicles versus 10,550 planned, showing insufficient supply
+               and explaining user complaints.</li>
+        </ul>
+        <div class="card-links">
+          <a href="#" target="_blank">GitHub →</a>
+        </div>
+      </div>
+      <div class="card-img">
+        <img src="assets/database-validation-1.png" alt="Captura del proyecto Database &amp; Logs Validation">
+      </div>
+    </article>
+
+    <!-- Para agregar más proyectos: copia un bloque <article class="card card-split">...</article>
+         completo y alterna la clase "reverse" para que la imagen cambie de lado. -->
 
   </div>
 </section>
 
-<!-- ================= CONTACTO ================= -->
-<!-- EDITA AQUI: tu email, CV y perfiles -->
 <section id="contact">
   <div class="wrap">
     <div class="contact-box">
@@ -437,6 +448,5 @@
 <footer>
   © 2026 Jan Rivera. Hosted on GitHub Pages.
 </footer>
-
 </body>
 </html>
