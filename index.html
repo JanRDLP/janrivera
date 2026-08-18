@@ -408,15 +408,28 @@
           <li>Ran SQL queries to check vehicle count, company distribution, weather conditions, and trip aggregation.</li>
           <li>Found fewer vehicles than planned, fragmented company fleets, and inconsistencies in trip data, supporting 
                bug detection in cost calculation and demand coverage.</li>
-          <li>SQL query counting taxis in database. Found 5,529 vehicles versus 10,550 planned, showing insufficient supply
-               and explaining user complaints.</li>
+          <li>Verified the total number of registered vehicles against the planned fleet size. The database showed only 5,529 
+            taxis compared tothe 10,550 expected, confirming a significant shortfall and explaining user complaints about 
+            availability.</li>
+          <li>Analyzed hourly weather records between November 5–6, 2017. Several intervals were classified as Bad (rain/storm),
+            such as 01:00, 04:00, 05:00, 14:00, 16:00, and 18:00–20:00. These conditions should trigger a fare coefficient of 2,
+            helping identify potential bugs in dynamic pricing logic.</li>
+          <li>Counted vehicles per company and found multiple operators with fewer than 100 cars. For example, Nova Taxi 
+            Affiliation had 97, Patriot Taxi 89, and Blue Diamond 85. Some individual operators had only 1 vehicle, highlighting 
+            fragmented service and limited capacity.</li>
+          <li>Measured trip volumes across companies. Flash Cab led with 19,558 trips, followed by Taxi Affiliation Services with
+            11,422, while smaller companies like Checker Taxi Affiliation had only 2,216. This distribution validated revenue 
+            reports and exposed inconsistencies among operators.</li>
         </ul>
         <div class="card-links">
           <a href="#" target="_blank">GitHub →</a>
         </div>
       </div>
       <div class="card-img">
-        <img src="assets/database-validation-1.png" alt="Captura del proyecto Database &amp; Logs Validation">
+        <img src="assets/img/Database & Logs Validation - Vehicles.png" alt="Total vehicles">
+        <img src="assets/img/Database & Logs Validation - Weather conditions.png" alt="Weather conditions">
+        <img src="assets/img/Database & Logs Validation - Less than 100 taxis.png" alt="Limited service capacity">
+        <img src="assets/img/Database & Logs Validation - Trips per company.png" alt="Trips per company">
       </div>
     </article>
 
