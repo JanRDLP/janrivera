@@ -35,7 +35,7 @@
   ::selection{ background: var(--pass); color:#0b1310; }
 
   .wrap{
-    max-width: 920px;
+    max-width: 1040px;
     margin: 0 auto;
     padding: 0 24px;
   }
@@ -191,9 +191,54 @@
     border: 1px solid var(--line);
     display:block;
   }
+  .card-split.reverse .card-img{ order:-1; }
+
+  /* ---------- gallery / slider dentro de .card-img ---------- */
+  .gallery{
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+  }
+  .gallery-track{
+    display:flex;
+    transition: transform .35s ease;
+  }
+  .gallery-track img{
+    width:100%;
+    flex: 0 0 100%;
+    display:block;
+    border-radius:0;
+    border:none;
+  }
+  .gallery-btn{
+    position:absolute; top:50%; transform:translateY(-50%);
+    background: rgba(16,20,27,.75);
+    border: 1px solid var(--line);
+    color: var(--text);
+    width:34px; height:34px;
+    border-radius:50%;
+    cursor:pointer;
+    font-family: var(--mono);
+    font-size:16px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .gallery-btn.prev{ left:10px; }
+  .gallery-btn.next{ right:10px; }
+  .gallery-btn:hover{ border-color: var(--accent); }
+  .gallery-dots{
+    position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
+    display:flex; gap:6px;
+  }
+  .gallery-dots span{
+    width:6px; height:6px; border-radius:50%;
+    background: var(--line);
+  }
+  .gallery-dots span.active{ background: var(--accent); }
 
   @media (max-width: 760px){
     .card-split{ grid-template-columns: 1fr; }
+    .card-split.reverse .card-img{ order:0; }
   }
 
   /* ---------- contact ---------- */
@@ -313,10 +358,6 @@
 </section>
 
 <!-- ================= PROYECTOS ================= -->
-<!-- Cada proyecto usa "card card-split" para poner texto e imagen lado a lado en desktop.
-     Agrega la clase "reverse" en proyectos alternos para que la imagen cambie de lado
-     (como en el ejemplo de Diego Ruiz). Reemplaza src="assets/..." con tus capturas reales.
-     Si un proyecto tiene 2 imágenes, agrega un segundo <img> dentro de .card-img. -->
 <section id="projects">
   <div class="wrap">
     <div class="eyebrow">projects/</div>
@@ -359,11 +400,26 @@
         </div>
       </div>
       <div class="card-img">
-        <img src="assets/urban-scooter-1.png" alt="Captura del proyecto Web, Mobile &amp; API Testing">
+        <div class="gallery">
+          <div class="gallery-track">
+            <img src="assets/img/.png" alt="">
+            <img src="assets/img/.png" alt="">
+            <img src="assets/img/.png" alt="">
+            <img src="assets/img/.png" alt="">
+          </div>
+          <button class="gallery-btn prev" onclick="slideGallery(this, -1)">❮</button>
+          <button class="gallery-btn next" onclick="slideGallery(this, 1)">❯</button>
+          <div class="gallery-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </div>
     </article>
 
-    <article class="card card-split">
+    <article class="card card-split reverse">
       <div class="card-text">
         <div class="card-top">
           <h3>End-to-End Automation</h3>
@@ -388,7 +444,22 @@
         </div>
       </div>
       <div class="card-img">
-        <img src="assets/urban-routes-1.png" alt="Captura del proyecto End-to-End Automation">
+        <div class="gallery">
+          <div class="gallery-track">
+            <img src="assets/img/.png" alt="">
+            <img src="assets/img/.png" alt="">
+            <img src="assets/img/.png" alt="">
+            <img src="assets/img/.png" alt="">
+          </div>
+          <button class="gallery-btn prev" onclick="slideGallery(this, -1)">❮</button>
+          <button class="gallery-btn next" onclick="slideGallery(this, 1)">❯</button>
+          <div class="gallery-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </div>
     </article>
 
@@ -426,10 +497,22 @@
         </div>
       </div>
       <div class="card-img">
-        <img src="assets/img/Database & Logs Validation - Vehicles.png" alt="Total vehicles">
-        <img src="assets/img/Database & Logs Validation - Weather conditions.png" alt="Weather conditions">
-        <img src="assets/img/Database & Logs Validation - Less than 100 taxis.png" alt="Limited service capacity">
-        <img src="assets/img/Database & Logs Validation - Trips per company.png" alt="Trips per company">
+        <div class="gallery">
+          <div class="gallery-track">
+            <img src="assets/img/dv_vehicles.png" alt="Total vehicles">
+            <img src="assets/img/dv_weather.png" alt="Weather conditions">
+            <img src="assets/img/dv_less_taxis.png" alt="Limited service capacity">
+            <img src="assets/img/dv_trips.png" alt="Trips per company">
+          </div>
+          <button class="gallery-btn prev" onclick="slideGallery(this, -1)">❮</button>
+          <button class="gallery-btn next" onclick="slideGallery(this, 1)">❯</button>
+          <div class="gallery-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </div>
     </article>
 
@@ -460,5 +543,20 @@
 <footer>
   © 2026 Jan Rivera. Hosted on GitHub Pages.
 </footer>
+
+<script>
+function slideGallery(btn, dir){
+  const gallery = btn.closest('.gallery');
+  const track = gallery.querySelector('.gallery-track');
+  const dots = gallery.querySelectorAll('.gallery-dots span');
+  const total = track.children.length;
+  let current = parseInt(track.dataset.index || 0);
+  current = (current + dir + total) % total;
+  track.dataset.index = current;
+  track.style.transform = `translateX(-${current * 100}%)`;
+  dots.forEach((d,i) => d.classList.toggle('active', i === current));
+}
+</script>
+
 </body>
 </html>
