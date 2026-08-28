@@ -608,8 +608,12 @@
           </div>
           <button class="gallery-btn prev" onclick="slideGallery(this, -1)">❮</button>
           <button class="gallery-btn next" onclick="slideGallery(this, 1)">❯</button>
-          <div 
-            class="gallery-dots">
+          <div class="gallery-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
       </div>
@@ -681,8 +685,12 @@
           </div>
           <button class="gallery-btn prev" onclick="slideGallery(this, -1)">❮</button>
           <button class="gallery-btn next" onclick="slideGallery(this, 1)">❯</button>
-          <div 
-            class="gallery-dots">
+          <div class="gallery-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
       </div>
@@ -747,8 +755,11 @@
           </div>
           <button class="gallery-btn prev" onclick="slideGallery(this, -1)">❮</button>
           <button class="gallery-btn next" onclick="slideGallery(this, 1)">❯</button>
-          <div 
-            class="gallery-dots">
+          <div class="gallery-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
       </div>
@@ -807,8 +818,10 @@
           </div>
           <button class="gallery-btn prev" onclick="slideGallery(this, -1)">❮</button>
           <button class="gallery-btn next" onclick="slideGallery(this, 1)">❯</button>
-          <div 
-            class="gallery-dots">
+          <div class="gallery-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
       </div>
@@ -863,6 +876,16 @@ function slideGallery(btn, dir){
   track.dataset.index = current;
   track.style.transform = `translateX(-${current * 100}%)`;
   dots.forEach((d,i) => d.classList.toggle('active', i === current));
+  const dots =
+    gallery.querySelectorAll(
+        ".gallery-dots span"
+    );
+dots.forEach(dot =>
+    dot.classList.remove("active")
+);
+if(dots[index]){
+    dots[index].classList.add("active");
+}
 }
 
 function createGalleryDots(){
