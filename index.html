@@ -277,56 +277,72 @@
 }
 
 .modal{
-  display:none;
-
-  position:fixed;
-  inset:0;
-
-  background:rgba(0,0,0,.9);
-
-  z-index:9999;
-
-  justify-content:center;
-  align-items:center;
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
 }
 
 .modal.show{
-  display:flex;
+    display:flex;
 }
 
 .modal-content{
-  width:min(90vw,1000px);
-
-  background:var(--panel);
-
-  border-radius:10px;
-
-  overflow:hidden;
-
-  position:relative;
+    position:relative;
+    width:min(90vw,1000px);
+    background:#111;
+    border-radius:10px;
+    overflow:hidden;
 }
 
 .modal-content img{
-  width:100%;
-  max-height:70vh;
+    width:100%;
+    max-height:75vh;
+    object-fit:contain;
+    background:black;
+}
 
-  object-fit:contain;
+.modal-prev,
+.modal-next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:40px;
+    border:none;
+    background:none;
+    color:white;
+    cursor:pointer;
+}
 
-  background:black;
+.modal-prev{
+    left:10px;
+}
+
+.modal-next{
+    right:10px;
+}
+
+.modal-close{
+    position:absolute;
+    top:10px;
+    right:20px;
+    color:white;
+    font-size:40px;
+    cursor:pointer;
 }
 
 #modalDescription{
-  padding:20px;
+    padding:20px;
 }
 
 .modal-close{
   position:absolute;
-
   top:10px;
   right:20px;
-
   font-size:40px;
-
   cursor:pointer;
 }
   
@@ -484,12 +500,14 @@
             <img 
               src="assets/img/login_test.png" 
               alt="test_login.py"
-              data-gallery="dashboard"
+              data-gallery="saucedemo"
               data-description="Both login tests passed, verifying successful login with a valid user and error handling for a 
               locked-out user. It demonstrates proper authentication validation in the framework."
               >
             <img 
-              src="assets/img/navigation_test.png" alt="test_navigation.py"
+              src="assets/img/navigation_test.png" 
+              alt="test_navigation.py"
+              data-gallery="saucedemo"
               data-description="All 26 navigation tests passed, covering sidebar interactions, logout, external redirects, product 
               detail navigation, and sorting options. It showcases comprehensive coverage of navigation flows within the 
               application."
@@ -497,7 +515,7 @@
             <img 
               src="assets/img/cart_test.png" 
               alt="test_cart.py"
-              data-gallery="dashboard"
+              data-gallery="saucedemo"
               data-description="All 20 cart-related tests passed successfully, covering product addition/removal from inventory 
               and details, cart navigation, and continue shopping functionality. It demonstrates the robustness of the cart flow 
               automation."
@@ -505,7 +523,7 @@
             <img 
               src="assets/img/checkout_test.png" 
               alt="test_checkout.py"
-              data-gallery="dashboard"
+              data-gallery="saucedemo"
               data-description="All 5 checkout tests passed, validating navigation to checkout information, cancel/continue 
               actions, order completion, and returning home after purchase. It confirms the reliability of the end-to-end checkout
               process."
@@ -553,7 +571,7 @@
             <img 
               src="assets/img/wma_api_requests.png" 
               alt="API – Create courier"
-              data-gallery="dashboard"
+              data-gallery="scooter"
               data-description="API request checklist for courier creation, deletion, and order management. Validated input 
               fields, error handling (400, 404, 409), and database consistency. Reported multiple defects 
               linked to Jira for traceability."
@@ -561,14 +579,14 @@
             <img 
               src="assets/img/wma_api_courier.png" 
               alt="Postman – Create courier"
-              data-gallery="dashboard"
+              data-gallery="scooter"
               data-description="Postman request creating a courier via POST /api/v1/courier, showing JSON input and a 
               successful 201 Created"
               >
             <img 
               src="assets/img/wma_delivery_mode.png" 
               alt="Android Studio – Courier mode"
-              data-gallery="dashboard"
+              data-gallery="scooter"
               data-description="Test cases executed in Android Studio emulator for courier mode. Validated push notifications, 
               offline scenarios, and error messages. Reported defects in Jira ensuring reproducibility and 
               clear documentation."
@@ -576,7 +594,7 @@
             <img 
               src="assets/img/wma_make_oder.png" 
               alt="Place order"
-              data-gallery="dashboard"
+              data-gallery="scooter"
               data-description="Field validation tests for order creation screen. Checked input limits, character restrictions, 
               and error messages across name, address, phone, and comments. Reported defects in Jira for 
               corrective action."
@@ -584,7 +602,7 @@
             <img 
               src="assets/img/wma_order_status.png" 
               alt="Order status screen"
-              data-gallery="dashboard"
+              data-gallery="scooter"
               data-description="Checklist for order status screen functionality. Verified state transitions, cancellation 
               rules, and UI behavior. Ensured compliance with expected flows and documented defects in 
               Jira."
@@ -634,7 +652,7 @@
             <img 
               src="assets/img/e2e_data.png" 
               alt="data.py - Set up"
-              data-gallery="dashboard"
+              data-gallery="routes"
               data-description="Python config file (data.py) used in End-to-End Automation to centralize test parameters—server 
               URL, addresses, phone, card details, and driver message—feeding Selenium + Pytest scripts to validate complete 
               ride flows."
@@ -642,28 +660,28 @@
             <img 
               src="assets/img/e2e_helpers.png" 
               alt="helpers.py – retrieve_phone_code"
-              data-gallery="dashboard"
+              data-gallery="routes"
               data-description="Python function retrieving phone confirmation code from logs using Selenium for automated 
               validation."
               >
             <img 
               src="assets/img/e2e_pages.png" 
               alt="pages.py – Locators"
-              data-gallery="dashboard"
+              data-gallery="routes"
               data-description="Selenium locators defined in Python to identify UI elements like buttons, inputs, and messages
               for end-to-end testing."
               >
             <img 
               src="assets/img/e2e_test.png" 
               alt="Urban.Routes web app"
-              data-gallery="dashboard"
+              data-gallery="routes"
               data-description="Automated browser test showing route details, taxi request flow, and countdown modal on the 
               Urban Routes interface."
               >
             <img 
               src="assets/img/e2e_test_passed.png" 
               alt="PyCharm – main.py"
-              data-gallery="dashboard"
+              data-gallery="routes"
               data-description="Automated test class in Python validating taxi order and travel info modal, with successful 
               execution result."
               >
@@ -708,7 +726,7 @@
             <img 
               src="assets/img/dv_vehicles.png" 
               alt="Total vehicles"
-              data-gallery="dashboard"
+              data-gallery="database"
               data-description="Verified the total number of registered vehicles against the planned fleet size. The database 
               showed only 5,529 taxis compared to the 10,550 expected, confirming a significant shortfall and explaining user 
               complaints about availability."
@@ -716,7 +734,7 @@
             <img 
               src="assets/img/dv_weather.png" 
               alt="Weather conditions"
-              data-gallery="dashboard"
+              data-gallery="database"
               data-description="Analyzed hourly weather records between November 5–6, 2017. Several intervals were classified
               as Bad (rain/storm), such as 01:00, 04:00, 05:00, 14:00, 16:00, and 18:00–20:00. These conditions should trigger
               a fare coefficient of 2, helping identify potential bugs in dynamic pricing logic."
@@ -724,7 +742,7 @@
             <img 
               src="assets/img/dv_less_taxis.png" 
               alt="Limited service capacity"
-              data-gallery="dashboard"
+              data-gallery="database"
               data-description="Counted vehicles per company and found multiple operators with fewer than 100 cars. For example,
               Nova Taxi Affiliation had 97, Patriot Taxi 89, and Blue Diamond 85. Some individual operators had only 1 vehicle, 
               highlighting fragmented service and limited capacity."
@@ -732,7 +750,7 @@
             <img 
               src="assets/img/dv_trips.png" 
               alt="Trips per company"
-              data-gallery="dashboard"
+              data-gallery="database"
               data-description="Measured trip volumes across companies. Flash Cab led with 19,558 trips, followed by Taxi 
               Affiliation Services with11,422, while smaller companies like Checker Taxi Affiliation had only 2,216. This 
               distribution validated revenue reports and exposed inconsistencies among operators."
@@ -781,18 +799,21 @@
             <img 
               src="https://github.com/JanRDLP/autolisp-routines/blob/main/images/dn/dn_inserted.png?raw=true" 
               alt="DN Inserted"
+              data-gallery="lisp"
               data-description="Result of the DN routine in AutoCAD, showing two concentric circles representing the pipe’s outer diameter (OD) 
               and inner diameter (ID). The command automatically calculates dimensions based on the selected nominal diameter (DN)."
               >
             <img 
               src="https://github.com/JanRDLP/autolisp-routines/blob/main/images/export_tags/export_tags_document_example.png?raw=true/" 
               alt="CSV Exported"
+              data-gallery="lisp"
               data-description="Output of the ExportarEtiquetas routine, exporting all component labels into a structured CSV/Excel file. The table
               includes layer, piece type, pipe type, size, flange type, length, and final label, creating a complete inventory of piping elements."
               >
             <img 
               src="https://github.com/JanRDLP/autolisp-routines/blob/main/images/layer_control/layer_control_current.png?raw=true/" 
               alt="Layer Control Screen"
+              data-gallery="lisp"
               data-description="LayerControl routine dialog in AutoCAD, providing a single panel to toggle visibility of grouped layers (Phase 1, 
               Phase 2, Pipe, 2D, 3D, Electrical, etc.). Layers are only visible if all applicable checkboxes are enabled, following AND logic for 
               complex projects."
@@ -839,9 +860,12 @@
   <div id="imageModal" class="modal">
       <div class="modal-content">
           <span class="modal-close">&times;</span>
+          <button class="modal-prev">&#10094;</button>
           <img id="modalImage">
+          <button class="modal-next">&#10095;</button>
           <div id="modalDescription"></div>
       </div>
+  
   </div>
   
 <script>
