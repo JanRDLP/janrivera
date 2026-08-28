@@ -531,8 +531,11 @@
           </div>
           <button class="gallery-btn prev" onclick="slideGallery(this, -1)">❮</button>
           <button class="gallery-btn next" onclick="slideGallery(this, 1)">❯</button>
-          <div 
-            class="gallery-dots">
+          <div class="gallery-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
       </div>
@@ -876,104 +879,20 @@ function slideGallery(btn, dir){
   track.dataset.index = current;
   track.style.transform = `translateX(-${current * 100}%)`;
   dots.forEach((d,i) => d.classList.toggle('active', i === current));
-  const dots =
-    gallery.querySelectorAll(
-        ".gallery-dots span"
-    );
-dots.forEach(dot =>
-    dot.classList.remove("active")
-);
-if(dots[index]){
-    dots[index].classList.add("active");
 }
-}
-
-function createGalleryDots(){
-    document.querySelectorAll(".gallery")
-    .forEach(gallery => {
-        const track =
-            gallery.querySelector(".gallery-track");
-        const images =
-            track.querySelectorAll("img");
-        const dotsContainer =
-            gallery.querySelector(".gallery-dots");
-        if(!dotsContainer) return;
-        dotsContainer.innerHTML = "";
-        images.forEach((img,index) => {
-            const dot =
-                document.createElement("span");
-            if(index === 0){
-                dot.classList.add("active");
-            }
-            dot.addEventListener("click", () => {
-                track.dataset.index = index;
-                track.style.transform =
-                    `translateX(-${index * 100}%)`;
-                dotsContainer
-                    .querySelectorAll("span")
-                    .forEach(d =>
-                        d.classList.remove("active")
-                    );
-                dot.classList.add("active");
-            });
-            dotsContainer.appendChild(dot);
-        });
-    });
-}
-  
-      const modal =
-        document.getElementById("imageModal");
-      const modalImg =
-        document.getElementById("modalImage");
-      const modalDesc =
-        document.getElementById("modalDescription");
-      let currentGallery = [];
-      let currentIndex = 0;
-  
-function showModalImage(){
-    const img =
-        currentGallery[currentIndex];
-    modalImg.src = img.src;
-    modalDesc.textContent =
-        img.dataset.description || "";
-});
-  
-  document.querySelectorAll(".gallery img")
-.forEach(img => {
-    img.addEventListener("click", () => {
-        const galleryName =
-            img.dataset.gallery;
-        currentGallery = Array.from(
-            document.querySelectorAll(
-                `.gallery img[data-gallery="${galleryName}"]`
-            )
-        );
-        currentIndex =
-            currentGallery.indexOf(img);
-        showModalImage();
-        modal.classList.add("show");
-    });
-});
-
-  document.querySelector(".modal-next")
-.addEventListener("click", () => {
-    currentIndex++;
-    if(currentIndex >= currentGallery.length){
-        currentIndex = 0;
-    }
-    showModalImage();
-});
-
-  document.querySelector(".modal-prev")
-.addEventListener("click", () => {
-    currentIndex--;
-    if(currentIndex < 0){
-        currentIndex =
-            currentGallery.length - 1;
-    }
-    showModalImage();
-});
-  
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  const modalDesc = document.getElementById("modalDescription");
+  document.querySelectorAll(".gallery img").forEach(img => {
+      img.addEventListener("click", () => {
+          modal.classList.add("show");
+          modalImg.src = img.src;
+          modalDesc.textContent =
+              img.dataset.description ||
+              img.alt ||
+              "";
+      });
+  });
   document.querySelector(".modal-close")
   .addEventListener("click", () => {
       modal.classList.remove("show");
@@ -984,8 +903,6 @@ function showModalImage(){
     }
 
 });
-
-  createGalleryDots();
 </script>
 
 </body>
