@@ -522,22 +522,36 @@
         <div class="gallery">
           <div class="gallery-track">
             <img
-              src="assets/img/npa_resultados.png"
+              src="assets/img/page_object.png"
               alt="Pytest results"
               data-gallery="nomadauto"
-              data-description="Pytest run of the public order flow tests."
+              data-description="BasePage contains shared browser actions, while MenuPage, CartPage, and OrderInfoPage
+              keep page-specific locators and interactions organized. This structure makes the tests easier to read 
+              and maintain."
               >
             <img
-              src="assets/img/npa_test_cart.png"
+              src="assets/img/test_menu.png"
               alt="test_cart.py"
               data-gallery="nomadauto"
-              data-description="Parametrized cart tests checking quantities, subtotals and totals."
+              data-description="Product IDs and ingredient combinations are prepared from shared test data, allowing
+              the suite to cover multiple menu items and customizable pizza scenarios with reusable test logic. The 
+              test results panel shows 130 tests passed in 2 minutes and 3 seconds."
               >
             <img
-              src="assets/img/npa_page_object.png"
+              src="assets/img/test_cart.png"
               alt="cart_page.py"
               data-gallery="nomadauto"
-              data-description="Cart Page Object with reusable locators and actions."
+              data-description="The example parametrizes order type and checks that increasing a product’s quantity 
+              updates both the item subtotal and the order total. The test results panel shows 73 tests passed in 2 
+              minutes and 11 seconds, including scenarios for quantity changes and product details."
+              >
+            <img
+              src="assets/img/test_info.png"
+              alt="cart_page.py"
+              data-gallery="nomadauto"
+              data-description="After placing a sample order, the test verifies the customer name, payment method, 
+              total, product details, and order information. The test results panel shows both tests in the file 
+              passed."
               >
           </div>
           <button class="gallery-btn prev" onclick="slideGallery(this, -1)">❮</button>
